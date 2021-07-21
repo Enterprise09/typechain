@@ -1,35 +1,28 @@
-//Interface
-/*
-interface Human {
-  name: string;
-  age: number;
-  gender: string;
+class Block {
+  public index: number;
+  public hash: string;
+  public previousHash: string;
+  public data: string;
+  public timestamp: number;
+  constructor(
+    index: number,
+    hash: string,
+    previousHash: string,
+    data: string,
+    timestamp: number
+  ) {
+    this.index = index;
+    this.hash = hash;
+    this.previousHash = previousHash;
+    this.data = data;
+    this.timestamp = timestamp;
+  }
 }
 
-const person = {
-  name: "enterprise",
-  gender: "male",
-  age: 22,
-};
-*/
+const genesisBlock: Block = new Block(0, "2020202202", "", "Hello", 123456);
 
-class Human {
-  public name: string;
-  public age: number;
-  public gender: string;
-  constructor(name: string, age: number, gender: string) {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
-  } //end of constructor
-}
+let blockchain: [Block] = [genesisBlock];
 
-const enter = new Human("Enter", 21, "male");
-
-const sayHi = (person: Human): string => {
-  return `Hello ${person.name}, you are ${person.age}, you are a ${person.gender}`;
-};
-
-console.log(sayHi(enter));
+console.log(blockchain);
 
 export {};
